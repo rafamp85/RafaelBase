@@ -52,7 +52,6 @@ public class ContactController {
 	public String addContact(@ModelAttribute(name="contactModel") ContactModel contactModel, Model model){
 		LOG.info("METHOD: addcontact -- PARAMS:" + contactModel.toString());
 		
-		
 		if( null != contactService.addContact(contactModel)){
 			model.addAttribute("result", 1);
 		}else{

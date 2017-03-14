@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
 
-    <title>::. Rafael Morales - Contacts .::</title>
+    <title>::. Rafael Morales - Rutas .::</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -11,17 +11,18 @@
     <!-- Custom styles for this template -->
     <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
     
- 	<link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
+ 	<link href="#" th:href="@{/css/clients.css}" rel="stylesheet" />
  	
   </head>
 
   <body>
-  
+	
   	<header>
   		<div th:replace="fragments/menu :: menu"> </div>
-  	</header>
+  	</header>	
 	
 	<div class="container">
+	
 		<h1>Hola, <span th:text="${username}"></span>!</h1>
 		<br/>
 		<div class="panel panel-default">
@@ -29,24 +30,21 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Nombre</th>
-						<th>Apellidos</th>
-						<th>Telefono</th>
-						<th>Ciudad</th>
-						<th>Acciones</th>
+						<th>Nombre de la Ruta</th>
+						<th>Ruta</th>
+						<th>Cliente</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="contact : ${contacts}">
-						<td th:text="${contact.firstname}"></td>
-						<td th:text="${contact.lastname}"></td>
-						<td th:text="${contact.telephone}"></td>
-						<td th:text="${contact.city}"></td>
+					<tr th:each="route : ${routes}">
+						<td th:text="${route.routename}"></td>
+						<td th:text="${route.route}"></td>
+						<td th:text="${route.client}"></td>
 						<td>
-							<a href="#" th:href="@{/contacts/contactform?id=__${contact.id}__}">
+							<a href="#" th:href="@{/routes/routeform?id=__${route.id}__}">
 								<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 							</a>
-							<a href="#" th:href="@{/contacts/removecontact?id=__${contact.id}__}">
+							<a href="#" th:href="@{/routes/removeroute?id=__${route.id}__}">
 								<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</a>	
 						</td>
@@ -55,18 +53,18 @@
 			</table>
 		</div>
 		
-		<div th:if="${result == 1}" class="alert alert-success" role="alert">Added successfully</div>
-		<div th:if="${result == 0}" class="alert alert-danger" role="alert">Error adding contact</div>
+		<div th:if="${result == 1}" class="alert alert-success" role="alert">Ruta agregada correctamente</div>
+		<div th:if="${result == 0}" class="alert alert-danger" role="alert">Error al agregar la Ruta</div>
 		
-		<a href="#" th:href="@{/contacts/contactform?id=0}">
-			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Agregar Técnico</button>
+		<a href="#" th:href="@{/routes/routeform?id=0}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Agregar Ruta</button>
 		</a>
 		
 		<form th:action="@{/logout}" method="POST">
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
 		</form>
 
-		<a href="#" th:href="@{/rest/checkrest}">Rest Request!</a>
+		<a href="#" th:href="@{/rest/checkrest}">Conecta Servicio Rest!</a>
 
 	</div>
 
