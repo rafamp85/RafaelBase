@@ -4,28 +4,28 @@ import com.cursospring.entity.Client;
 
 public class RouteModel {
 
-	private int id;
+	private int idroute;
 	private String routename;
-	private String route;
+	private String routedescription;
 	private Client client;
 
 	public RouteModel() {
 	}
 
-	public RouteModel(int id, String routename, String route, Client client) {
+	public RouteModel(int idroute, String routename, String routedescription, Client client) {
 		super();
-		this.id = id;
+		this.idroute = idroute;
 		this.routename = routename;
-		this.route = route;
+		this.routedescription = routedescription;
 		this.client = client;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdroute() {
+		return idroute;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdroute(int idroute) {
+		this.idroute = idroute;
 	}
 
 	public String getRoutename() {
@@ -36,12 +36,12 @@ public class RouteModel {
 		this.routename = routename;
 	}
 
-	public String getRoute() {
-		return route;
+	public String getRoutedescription() {
+		return routedescription;
 	}
 
-	public void setRoute(String route) {
-		this.route = route;
+	public void setRoutedescription(String routedescription) {
+		this.routedescription = routedescription;
 	}
 
 	public Client getClient() {
@@ -50,6 +50,12 @@ public class RouteModel {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	@Override
+	public String toString() {
+		return "RouteModel [idRoute=" + idroute + ", routename=" + routename + ", routedescription=" + routedescription
+				+ ", client=" + client + "]";
 	}
 
 }

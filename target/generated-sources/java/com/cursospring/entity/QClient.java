@@ -26,7 +26,7 @@ public class QClient extends EntityPathBase<Client> {
 
     public final StringPath clientname = createString("clientname");
 
-    public final NumberPath<Integer> id = createNumber("id", Integer.class);
+    public final NumberPath<Integer> idclient = createNumber("idclient", Integer.class);
 
     public final QRoute route;
 
@@ -50,7 +50,7 @@ public class QClient extends EntityPathBase<Client> {
 
     public QClient(Class<? extends Client> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.route = inits.isInitialized("route") ? new QRoute(forProperty("route"), inits.get("route")) : null;
+        this.route = inits.isInitialized("route") ? new QRoute(forProperty("route")) : null;
     }
 
 }

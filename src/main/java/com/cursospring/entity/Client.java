@@ -15,8 +15,8 @@ public class Client {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
-	private int id;
+	@Column(name = "idclient")
+	private int idclient;
 
 	@Column(name = "clientname")
 	private String clientname;
@@ -27,28 +27,28 @@ public class Client {
 	@Column(name = "telephone")
 	private String telephone;
 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idroute")
 	private Route route;
 
 	public Client() {
 	}
 
-	public Client(int id, String clientname, String address, String telephone, Route route) {
+	public Client(int idclient, String clientname, String address, String telephone, Route route) {
 		super();
-		this.id = id;
+		this.idclient = idclient;
 		this.clientname = clientname;
 		this.address = address;
 		this.telephone = telephone;
 		this.route = route;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdclient() {
+		return idclient;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdclient(int idclient) {
+		this.idclient = idclient;
 	}
 
 	public String getClientname() {

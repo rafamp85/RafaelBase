@@ -10,6 +10,6 @@ import com.cursospring.entity.Client;
 @Repository("clientRepository")
 public interface ClientRepository extends JpaRepository<Client, Serializable> {
 
-	public abstract Client findById(int id);
+	public abstract Client findByIdclient(int id);
 	
 }

@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -18,37 +17,24 @@ public class QRoute extends EntityPathBase<Route> {
 
     private static final long serialVersionUID = -124748720L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
+    public static final QRoute route = new QRoute("route");
 
-    public static final QRoute route1 = new QRoute("route1");
+    public final NumberPath<Integer> idroute = createNumber("idroute", Integer.class);
 
-    public final QClient client;
-
-    public final NumberPath<Integer> id = createNumber("id", Integer.class);
-
-    public final StringPath route = createString("route");
+    public final StringPath routedescription = createString("routedescription");
 
     public final StringPath routename = createString("routename");
 
     public QRoute(String variable) {
-        this(Route.class, forVariable(variable), INITS);
+        super(Route.class, forVariable(variable));
     }
 
     public QRoute(Path<? extends Route> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QRoute(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QRoute(PathMetadata metadata, PathInits inits) {
-        this(Route.class, metadata, inits);
-    }
-
-    public QRoute(Class<? extends Route> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.client = inits.isInitialized("client") ? new QClient(forProperty("client"), inits.get("client")) : null;
+        super(Route.class, metadata);
     }
 
 }

@@ -20,17 +20,21 @@
 			<h1>Formulario Cliente</h1>
 			<br/>
 			<form action="#" th:action="@{/clients/addclient}" th:object="${clientModel}" method="post">
-				<input type="hidden" th:field="*{id}"></input>
+				<input type="hidden" th:field="*{idclient}"></input>
 				Nombre del Cliente: <input type="text" class="form-control" th:field="*{clientname}" th:value="${clientname}"></input>
+				<p th:if="${#fields.hasErrors('clientname')}" th:errors="*{clientname}">Error con el Nombre</p>
 				<br/>
 				Dirección: <input type="text" class="form-control" th:field="*{address}" th:value="${address}"></input>
+				<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error con la Dirección</p>
 				<br/>
 				Telefono: <input type="text" class="form-control" th:field="*{telephone}" th:value="${telephone}"></input>
+				<p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}">Error con el Telefono</p>
 				<br/>
 				Ruta:
-				<select th:field="*{route}" class="form-control">
-              		<option th:each="route : ${routes}" th:value="${route}" th:text="${route.routename}"></option>
+				<select th:field="*{idroute}" class="form-control">
+              		<option th:each="route : ${routes}" th:value="${route.idroute}" th:text="${route.routename}"></option>
             	</select>
+            	<p th:if="${#fields.hasErrors('route')}" th:errors="*{route}">Error con la Ruta</p>
 				<br/>
 				<br/>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">

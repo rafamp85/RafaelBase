@@ -45,18 +45,19 @@ public class RouteServiceImpl implements RouteService {
 
 	@Override
 	public Route findRouteById(int id) {
-		return routeRepository.findById(id);
+		return routeRepository.findByIdroute(id);
 	}
 
 	@Override
 	public RouteModel findRouteModelById(int id) {
-		Route route = routeRepository.findById(id);
+		Route route = routeRepository.findByIdroute(id);
+		
 		return routeConverter.convertRoute2RouteModel(route);
 	}
 
 	@Override
 	public void removeRoute(int id) {
-		Route route = routeRepository.findById(id);
+		Route route = routeRepository.findByIdroute(id);
 		
 		if(null != route){
 			routeRepository.delete(route);

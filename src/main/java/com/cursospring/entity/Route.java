@@ -14,34 +14,35 @@ public class Route {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
-	private int id;
+	@Column(name = "idroute")
+	private int idroute;
 
 	@Column(name = "routename")
 	private String routename;
 
-	@Column(name = "route")
-	private String route;
+	@Column(name = "routedescription")
+	private String routedescription;
 
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "route")
-	private Client client;
+//	@OneToOne(fetch = FetchType.LAZY, mappedBy = "route")
+//	private Client client;
 
 	public Route() {
 	}
 
-	public Route(int id, String routename, Client client) {
+	public Route(int idroute, String routename, String routedescription) {
 		super();
-		this.id = id;
+		this.idroute = idroute;
 		this.routename = routename;
-		this.client = client;
+		this.routedescription = routedescription;
+//		this.client = client;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdroute() {
+		return idroute;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdroute(int idroute) {
+		this.idroute = idroute;
 	}
 
 	public String getRoutename() {
@@ -52,20 +53,20 @@ public class Route {
 		this.routename = routename;
 	}
 
-	public String getRoute() {
-		return route;
+	public String getRoutedescription() {
+		return routedescription;
 	}
 
-	public void setRoute(String route) {
-		this.route = route;
+	public void setRoutedescription(String routedescription) {
+		this.routedescription = routedescription;
 	}
 
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
+//	public Client getClient() {
+//		return client;
+//	}
+//
+//	public void setClient(Client client) {
+//		this.client = client;
+//	}
 
 }

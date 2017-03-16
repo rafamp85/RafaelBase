@@ -11,10 +11,10 @@ public class RouteConverter {
 	public Route convertRouteModel2Route(RouteModel routeModel){
 		Route route = new Route();
 		
-		route.setClient(routeModel.getClient());
-		route.setId(routeModel.getId());
+//		route.setClient(routeModel.getClient());
+		route.setIdroute(routeModel.getIdroute());
 		route.setRoutename(routeModel.getRoutename());
-		route.setRoute(routeModel.getRoute());
+		route.setRoutedescription(routeModel.getRoutedescription());
 		
 		return route;
 	}
@@ -22,10 +22,10 @@ public class RouteConverter {
 	public RouteModel convertRoute2RouteModel(Route route){
 		RouteModel routeModel = new RouteModel();
 		
-		routeModel.setClient(route.getClient());
-		routeModel.setId(route.getId());
+//		routeModel.setClient(route.getClient());
+		routeModel.setIdroute(route.getIdroute());
 		routeModel.setRoutename(route.getRoutename());
-		routeModel.setRoute(route.getRoute());
+		routeModel.setRoutedescription(route.getRoutedescription());
 		
 		return routeModel;
 	}

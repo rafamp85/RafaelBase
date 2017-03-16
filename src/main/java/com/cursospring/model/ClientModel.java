@@ -1,33 +1,34 @@
 package com.cursospring.model;
 
-import com.cursospring.entity.Route;
-
 public class ClientModel {
 
-	private int id;
+	private int idclient;
 	private String clientname;
 	private String address;
 	private String telephone;
-	private Route route;
+	private int idroute;
+	private RouteModel route;
 
 	public ClientModel() {
 	}
 
-	public ClientModel(int id, String clientname, String address, String telephone, Route route) {
+	public ClientModel(int idclient, String clientname, String address, String telephone, int idroute,
+			RouteModel route) {
 		super();
-		this.id = id;
+		this.idclient = idclient;
 		this.clientname = clientname;
 		this.address = address;
 		this.telephone = telephone;
+		this.idroute = idroute;
 		this.route = route;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdclient() {
+		return idclient;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdclient(int idclient) {
+		this.idclient = idclient;
 	}
 
 	public String getClientname() {
@@ -54,18 +55,28 @@ public class ClientModel {
 		this.telephone = telephone;
 	}
 
-	public Route getRoute() {
+	public int getIdroute() {
+		return idroute;
+	}
+
+	public void setIdroute(int idroute) {
+		this.idroute = idroute;
+	}
+
+	public RouteModel getRoute() {
 		return route;
 	}
 
-	public void setRoute(Route route) {
+	public void setRoute(RouteModel route) {
 		this.route = route;
 	}
 
 	@Override
 	public String toString() {
-		return "ClientModel [id=" + id + ", clientname=" + clientname + ", address=" + address + ", telephone="
-				+ telephone + ", route=" + route + "]";
+		return "ClientModel [idclient=" + idclient + ", clientname=" + clientname + ", address=" + address
+				+ ", telephone=" + telephone + ", idroute=" + idroute + ", route=" + route + "]";
 	}
+
+
 
 }

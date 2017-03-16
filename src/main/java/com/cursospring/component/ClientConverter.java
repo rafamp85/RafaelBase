@@ -1,5 +1,7 @@
 package com.cursospring.component;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.cursospring.entity.Client;
@@ -8,14 +10,19 @@ import com.cursospring.model.ClientModel;
 @Component("clientConverter")
 public class ClientConverter {
 
+	@Autowired
+	@Qualifier("routeConverter")
+	RouteConverter routeConverter;
+	
+	
 	public Client convertClientModel2Client(ClientModel clientModel){
 		Client client = new Client();
 		
 		client.setAddress(clientModel.getAddress());
 		client.setClientname(clientModel.getClientname());
-		client.setId(clientModel.getId());
-		client.setRoute(clientModel.getRoute());
+		client.setIdclient(clientModel.getIdclient());
 		client.setTelephone(clientModel.getTelephone());
+		client.setRoute(routeConverter.convertRouteModel2Route(clientModel.getRoute()));
 		
 		return client;
 	}
@@ -26,9 +33,9 @@ public class ClientConverter {
 		
 		clientModel.setAddress(client.getAddress());
 		clientModel.setClientname(client.getClientname());
-		clientModel.setId(client.getId());
-		clientModel.setRoute(client.getRoute());
+		clientModel.setIdclient(client.getIdclient());
 		clientModel.setTelephone(client.getTelephone());
+		clientModel.setRoute(routeConverter.convertRoute2RouteModel(client.getRoute()));
 		
 		return clientModel;
 	}

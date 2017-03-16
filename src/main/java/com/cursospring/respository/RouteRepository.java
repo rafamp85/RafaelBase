@@ -10,6 +10,6 @@ import com.cursospring.entity.Route;
 @Repository("routeRepository")
 public interface RouteRepository extends JpaRepository<Route, Serializable> {
 	
-	public abstract Route findById(int id);
+	public abstract Route findByIdroute(int id);
 	
 }

@@ -58,6 +58,8 @@ public class RequestTimeInterceptor extends HandlerInterceptorAdapter {
 			username = auth.getName();
 		}
 		
+		LOG.info("GUARDA LOG" + auth.getDetails().toString() + "::::" +  username + "::::" +  url);
+		
 		logRepository.save(new com.cursospring.entity.Log(new Date(), auth.getDetails().toString(), username, url));
 		
 		LOG.info("URL to: '" + url +  "' in: '" + (System.currentTimeMillis() - startTime) + " 'ms'");
